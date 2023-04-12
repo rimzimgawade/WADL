@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="Enter name" class="name"/>
+    <p class="p"></p>
+    <button class="btn">Submit</button>
+    <script>
+          let name = document.querySelector(".name");
+          const btn = document.querySelector(".btn");
+          btn.addEventListener("click",()=>{
+          let pro = new Promise((resolve,reject)=>{
+            if(name.value!='')
+            {
+                 resolve(`name is: ${name.value}`);
+                 name.value = "";
+            }
+            else{
+                reject("Please Enter Your Name");
+            }
+          })
+
+          pro.then((val)=>{
+              document.querySelector(".p").innerHTML = val;
+          }).catch((val)=>{
+            document.querySelector(".p").innerHTML = val;
+          })
+          })
+    </script>
+</body>
+</html>
